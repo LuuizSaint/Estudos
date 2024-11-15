@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Document</title>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      body {
+        background-color: beige;
+        width: 100%;
+      }
+      div {
+        background-color: darkcyan;
+        border: 2px solid #000;
+        border-radius: 5px;
+        width: 150px;
+        height: 150px;
+        margin: 0px 0px 10px 10px;
+      }
+      button {
+        margin: 10px 0px 10px 60px;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="button">Click</button>
+    <div id="div1">1</div>
+    <div id="div2" style="display: none">Success</div>
+    <script>
+      $("#button").click((e) => {
+        $("#div1").animate(
+          {
+            opacity: 0.5,
+            marginTop: "+=50",
+            marginLeft: "+=140",
+          },
+          1000,
+          "linear",
+          () => {
+            $("#div2").toggle(800).delay(800).toggle(400);
+          }
+        );
+      });
+    </script>
+  </body>
+</html>
