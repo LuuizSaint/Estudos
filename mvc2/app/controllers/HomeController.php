@@ -3,16 +3,24 @@
 namespace app\controllers;
 
 use app\views\View;
+use app\models\entity\Org;
 
-class HomeController
+class HomeController extends PageController
 {
 
     public static function getHome()
     {
-        return View::render('home', [
-            'userId' => 2,
-            'userName' => 'Pedrin',
-            'userEmail' => 'pedrinEspacaXota@gmail.com'
+        $objOrg = new Org;
+
+        $content = View::render('home', [
+            'userId' => $objOrg->id,
+            'userName' => $objOrg->name,
+            'userEmail' => $objOrg->email,
+            'userSex' => $objOrg->sex,
+            'userDesc' => $objOrg->desc,
+            'userScore' => $objOrg->score
         ]);
+
+        return PageController::getPage('Home', $content);
     }
 }

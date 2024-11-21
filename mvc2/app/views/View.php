@@ -21,7 +21,9 @@ class View
     {
         $contentView = self::getContentView($view);
 
-        $arrayKeys = array_keys($params);
+        foreach (array_keys($params) as $key) {
+            $contentView = str_replace('{{' . $key . '}}', $params[$key], $contentView);
+        }
 
         return $contentView;
     }
