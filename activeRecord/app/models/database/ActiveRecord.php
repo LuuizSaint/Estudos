@@ -2,9 +2,11 @@
 
 namespace app\models\database;
 
+use app\models\interfaces\IActiveRecord;
+use app\models\interfaces\IExecute;
 use ReflectionClass;
 
-abstract class ActiveRecord
+abstract class ActiveRecord implements IActiveRecord
 {
     protected $table = null;
     protected $attrArray = [];
@@ -34,5 +36,10 @@ abstract class ActiveRecord
     public function __get($attr)
     {
         return $this->attrArray[$attr];
+    }
+
+    public function execute(IExecute $execute)
+    {
+        return $execute->execute($this);
     }
 }
