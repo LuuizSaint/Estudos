@@ -10,7 +10,10 @@ use app\models\User;
 
 $user = new User;
 
-$user->firstName = 'Pedrin';
-$user->lastName = 'Primo';
-$user->age = 23;
-$user->id = 1;
+$user->firstName = 'Luizin';
+$user->lastName = 'Da DG ';
+$user->age = 24;
+$user->id = 2;
+
+
+echo $user->execute(new Insert);
