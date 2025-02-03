@@ -52,19 +52,31 @@ array_values($arrAssoc); // Retona os values do array
 
 array_key_exists("print", $arrAssoc); // Retorna true se existir a key e false para não
 
-
 $arrSplice = $arrSlice;
-
 // array_splice(arr, start, end(opitional), arr(serve para repor os valores é opitional)) 
 array_splice($arrSplice, 1, 3); //Remove e resgata os valores, altera o array original
 
-
 $arrExtract = $arrAssoc;
-
 // extract(arr) Transforma as keys em variaveis com o valor dos values, sobrepoem caso já exista
 extract($arrExtract);
 
 
+$marca = "Audi";
+$modelo = "RS6";
+$cor = "Vermelho";
+$portas = 4;
+$ipva = true;
+// compact(var_name.., var_name) Trasnforma variáveis em um array
+$carro = compact("marca", "modelo", "cor", "portas", "ipva");
+
+
+$arrReduce = [1, 5, 23, 4, 567, 33, 23, 56, 0, 98, 123];
+
+$result = array_reduce($arrReduce, function($a, $b) {
+    return $a + $b;
+});
+
+var_dump($result);
 
 
 
@@ -75,4 +87,42 @@ extract($arrExtract);
 
 
 
+
+
+
+
+
+
+$arrPerson = [
+    "Pedrin" => 23,
+    "Robertin" => 2,
+    "Duardin" => 14,
+    "Guizin" => 7,
+    "Junin" => 20
+
+];
 ?>
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<table>
+<?php foreach($arrPerson as $key => $value): ?>
+    <tr>
+        <?php if($value >= 18): ?>
+        <td>
+            <?= $key; ?>
+        </td>
+        <td>
+            <?= $value; ?>
+        </td>
+        <?php endif; ?>
+    </tr>
+<?php endforeach; ?>
+</table>
+</body>
+</html> -->
