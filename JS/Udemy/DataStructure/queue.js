@@ -22,7 +22,7 @@ class Queue {
     deQueue()
     {
         if(this.isEmpty()) {
-            return "Empty Stack!";
+            return "Empty Queue!";
         }
         return this.queue.shift();
     }
@@ -31,7 +31,7 @@ class Queue {
     front()
     {
         if(this.isEmpty()) {
-            return "Empty Stack!";
+            return "Empty Queue!";
         }
         return this.queue[0];
     }
